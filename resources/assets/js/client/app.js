@@ -1,0 +1,9 @@
+$('.feed').owlCarousel({
+    items:2,
+    margin:20,
+    responsive:{
+        600:{
+            items:5
+        }
+    }
+});

@@ -1,0 +1,96 @@
+[
+    {
+        "title": "New Storie",
+        "icon_image": "http://127.0.0.1:8000/images/icon_images/6QywWhBYKv.jpeg",
+        "feed_stories": [
+            {
+                "url_name": "черный тапок",
+                "url_address": "ссылка его"
+            },
+            {
+                "url_name": "одинокая тапка",
+                "url_address": "и ее ссылка"
+            },
+            {
+                "url_name": "2 тапка",
+                "url_address": "им заебись"
+            },
+            {
+                "url_name": null,
+                "url_address": null
+            }
+        ],
+        "feed_images": [
+            {
+                "image": "http://127.0.0.1:8000/images/story_images/Qgwr6uhKNv.jpeg"
+            },
+            {
+                "image": "http://127.0.0.1:8000/images/story_images/N3mTSL24qK.jpeg"
+            },
+            {
+                "image": "http://127.0.0.1:8000/images/story_images/KCHxcOgZH4.jpeg"
+            },
+            {
+                "image": "http://127.0.0.1:8000/images/story_images/DcDQv41GIo.jpeg"
+            }
+        ]
+    },
+    {
+        "title": "Project",
+        "icon_image": "http://127.0.0.1:8000/images/icon_images/jmq5tDsjbu.jpeg",
+        "feed_stories": [
+            {
+                "url_name": "name",
+                "url_address": "addr1"
+            },
+            {
+                "url_name": "name2",
+                "url_address": "addr3"
+            }
+        ],
+        "feed_images": [
+            {
+                "image": "http://127.0.0.1:8000/images/story_images/9XScNzJZT0.jpeg"
+            },
+            {
+                "image": "http://127.0.0.1:8000/images/story_images/JNiMF1MvAJ.jpeg"
+            }
+        ]
+    },
+    {
+        "title": "Project",
+        "icon_image": "http://127.0.0.1:8000/images/icon_images/9D56qy1Wve.png",
+        "feed_stories": [],
+        "feed_images": []
+    },
+    {
+        "title": "Project",
+        "icon_image": "http://127.0.0.1:8000/images/icon_images/wbcHwN0ZLg.png",
+        "feed_stories": [],
+        "feed_images": []
+    },
+    {
+        "title": "Test Title",
+        "icon_image": "http://127.0.0.1:8000/images/icon_images/yUoo7blCHZ.png",
+        "feed_stories": [],
+        "feed_images": []
+    },
+    {
+        "title": "Test Title",
+        "icon_image": "http://127.0.0.1:8000/images/icon_images/Wf5ens6o8F.png",
+        "feed_stories": [],
+        "feed_images": []
+    },
+    {
+        "title": "Test Title",
+        "icon_image": "http://127.0.0.1:8000/images/icon_images/Uoe61A6R6W.png",
+        "feed_stories": [],
+        "feed_images": []
+    },
+    {
+        "title": "Студия флористики",
+        "icon_image": "http://127.0.0.1:8000/images/icon_images/W47WRjsWGw.jpg",
+        "feed_stories": [],
+        "feed_images": []
+    }
+]

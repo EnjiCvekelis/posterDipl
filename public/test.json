@@ -1,0 +1,22 @@
+[
+    {
+        "subcategory": [
+            {
+                "id": 4,
+                "name": "Stuck In Traffic",
+                "icon": null
+            }
+        ],
+        "locale": []
+    },
+    {
+        "subcategory": [
+            {
+                "id": 7,
+                "name": "Flight New",
+                "icon": "http://127.0.0.1:8000/images/icons/Q9pmhdfIbg.png"
+            }
+        ],
+        "locale": []
+    }
+]

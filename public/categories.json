@@ -1,0 +1,27 @@
+[
+    {
+        "track": [
+            {
+                "name": "MIYAGI - test",
+                "description": "dwfrvgthhtrf",
+                "cover": "http://127.0.0.1:8000/images/covers/66ZgfgIwxj.png",
+                "length": "00:03:31",
+                "track": "http://127.0.0.1:8000/tracks/miyagi-test.mp3"
+            },
+            {
+                "name": "Test",
+                "description": "wefrgthy",
+                "cover": "http://127.0.0.1:8000/images/covers/Lsy1MSJJQj.jpeg",
+                "length": "00:03:26",
+                "track": "http://127.0.0.1:8000/tracks/test.mp3"
+            },
+            {
+                "name": "Bones - Cement",
+                "description": "Bones - DarkRows",
+                "cover": "http://127.0.0.1:8000/images/covers/Q1fVb6fyyF.png",
+                "length": "00:02:09",
+                "track": "http://127.0.0.1:8000/tracks/bones - darkrows.mp3"
+            }
+        ]
+    }
+]
