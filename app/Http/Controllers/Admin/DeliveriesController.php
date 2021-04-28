@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Core\Services\Infrastructure\IImageService;
 use App\Core\Traits\GridWithSimpleSearch;
 use App\Dal\Entities\Admin\DeliveriesAdmin;
+use App\Dal\Entities\Admin\RemainsAdmin;
 use App\Dal\Entities\Admin\SubCategoryAdmin;
 use App\Dal\Entities\Deliveries;
 use App\Dal\Entities\Goods;
@@ -26,7 +27,7 @@ class DeliveriesController extends BkControllerBase
     public function index(Request $request)
     {
         $gridItems = $this->getGrid($request, DeliveriesAdmin::class);
-        $name = Deliveries::with('goods')->get();
+        $deliveries = Deliveries::with('goods')->get();
 
 
         return view(
@@ -34,7 +35,7 @@ class DeliveriesController extends BkControllerBase
             [
                 'gridItems' => $gridItems,
                 'query' => $gridItems->searchQuery,
-                'name' => $name
+                'deliveries' => $deliveries
             ]
         );
     }
@@ -50,10 +51,10 @@ class DeliveriesController extends BkControllerBase
             $entity->total = $request->amount * $request->price;
             $entity->save();
 
-//            $pivot = new CategorySubcategory();
-//            $pivot->category_id = $request->parent;
-//            $pivot->subcategory_id = $entity->id;
-//            $pivot->save();
+            $remains = RemainsAdmin::where('goods_id', '=', $request->goods_id)->firstOrFail();
+            $remains->total = $remains->total + $entity->total;
+            $remains->amount = $remains->amount + $request->amount;
+            $remains->save();
 
 
 
@@ -139,10 +140,26 @@ class DeliveriesController extends BkControllerBase
     public function delete($id)
     {
         $entity = DeliveriesAdmin::findOrFail($id);
-//        CategorySubcategory::where('subcategory_id', '=', $id)->delete();
         $entity->delete();
 
         return redirect()->back();
+    }
+
+
+    public function remains(Request $request)
+    {
+        $gridItems = $this->getGrid($request, DeliveriesAdmin::class);
+        $remains = RemainsAdmin::all();
+
+
+        return view(
+            'admin.remains.index',
+            [
+                'gridItems' => $gridItems,
+                'query' => $gridItems->searchQuery,
+                'remains' => $remains
+            ]
+        );
     }
 
     private function validateAddForm(Request $request)
@@ -177,26 +194,5 @@ class DeliveriesController extends BkControllerBase
         );
     }
 
-    public function json()
-    {
-        $json = Goods::with(['locale', 'subcategory.track'])->get();
-//        $json = Goods::all()->locale()->subcategory();
-//        dd($json);
-//        dd($json);
-//        foreach ($json as $item)
-//        {
-//            unset($item['id']);
-//            unset($item['sort_order']);
-//            unset($item['created_at']);
-//            unset($item['updated_at']);
-//        }
 
-        $data = json_encode($json, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
-        $filename = "test.json";
-        $handle = fopen($filename, 'w+');
-        fputs($handle, $data);
-        fclose($handle);
-        $headers = array('Content-type'=> 'application/json');
-        return response()->download($filename,'test.json',$headers);
-    }
 }

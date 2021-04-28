@@ -49,6 +49,7 @@ Route::get('/tracks/{id}', 'Admin\JsonController@tracks');
         Route::get('goods/{id}/delete', 'Admin\GoodsController@delete')->name('admin.goods.delete');
 
         Route::get('deliveries', 'Admin\DeliveriesController@index')->name('admin.deliveries');
+        Route::get('remains', 'Admin\DeliveriesController@remains')->name('admin.remains');
         Route::get('deliveries/add', 'Admin\DeliveriesController@add')->name('admin.deliveries.add');
         Route::post('deliveries/add', 'Admin\DeliveriesController@add');
         Route::get('deliveries/{id}/edit', 'Admin\DeliveriesController@edit')->name('admin.deliveries.edit');

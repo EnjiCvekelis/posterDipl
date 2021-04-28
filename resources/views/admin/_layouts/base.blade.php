@@ -54,6 +54,12 @@
                     <span class="nav-link-category">Поставки</span>
                 </a>
             </li>
+            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Остатки">
+                <a class="nav-link" href="{{ route('admin.remains') }}">
+                    <i class="fas fa-users"></i>
+                    <span class="nav-link-category">Остатки</span>
+                </a>
+            </li>
         </ul>
         <ul class="navbar-nav sidenav-toggler">
             <li class="nav-item">

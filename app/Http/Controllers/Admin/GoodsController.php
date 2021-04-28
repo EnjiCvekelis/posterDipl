@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Core\Services\Infrastructure\IImageService;
 use App\Core\Traits\GridWithSimpleSearch;
 use App\Dal\Entities\Admin\GoodsAdmin;
+use App\Dal\Entities\Admin\RemainsAdmin;
 use App\Dal\Entities\CategoryLocale;
 use App\Dal\Entities\Locale;
 use Illuminate\Http\Request;
@@ -41,6 +42,11 @@ class GoodsController extends BkControllerBase
             $this->validateAddForm($request);
             $entity = new GoodsAdmin($request->all());
             $entity->save();
+
+            $remains = new RemainsAdmin();
+            $remains->goods_id = $entity->id;
+            $remains->name = $request->name;
+            $remains->save();
 
             return redirect(
                 routeWithQuery(
@@ -99,6 +105,7 @@ class GoodsController extends BkControllerBase
     {
         $entity = GoodsAdmin::findOrFail($id);
         $entity->delete();
+        RemainsAdmin::where('goods_id', '=', $id)->delete();
 
         return redirect()->back();
     }

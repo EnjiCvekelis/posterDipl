@@ -20,7 +20,7 @@
 
 @section('form_grid_table_data_rows')
 
-    @foreach($name as $gridItem)
+    @foreach($deliveries as $gridItem)
         <tr>
             <td>{{ $gridItem->goods->name }}</td>
             <td>{{ $gridItem->amount }}</td>
