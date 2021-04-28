@@ -48,6 +48,12 @@
                     <span class="nav-link-category">Товары</span>
                 </a>
             </li>
+            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Поставки">
+                <a class="nav-link" href="{{ route('admin.deliveries') }}">
+                    <i class="fas fa-users"></i>
+                    <span class="nav-link-category">Поставки</span>
+                </a>
+            </li>
         </ul>
         <ul class="navbar-nav sidenav-toggler">
             <li class="nav-item">

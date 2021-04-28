@@ -7,18 +7,19 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
-class Locale extends EntityBase
+class Deliveries extends EntityBase
 {
-    protected $table = 'languages';
+    protected $table = 'deliveries';
 
     /**
      * @var array
      */
 
-    protected $fillable = ['language'];
+    protected $fillable = ['goods_id', 'amount', 'price', 'total', 'storage'];
 
-    public function category() :BelongsToMany
+    public function goods()
     {
-        return $this->belongsToMany(Goods::class, 'categories_languages', 'locale_id', 'category_id');
+        return $this->belongsTo(Goods::class);
     }
+
 }
