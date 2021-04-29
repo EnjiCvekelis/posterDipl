@@ -17,7 +17,7 @@
     </div>
     <div class="content-panel content-form">
         <div class="col-md-12 page-title">
-            <h4 class="text-center text-uppercase">{{ empty($entity->id) ? 'ADD' : 'EDIT' }} @yield('form_header')</h4>
+            <h4 class="text-center text-uppercase">{{ empty($entity->id) ? 'СОЗДАТЬ' : 'РЕДАКТИРОВАТЬ' }} @yield('form_header')</h4>
         </div>
         <div class="col-md-12">
             @if (count($errors) > 0)

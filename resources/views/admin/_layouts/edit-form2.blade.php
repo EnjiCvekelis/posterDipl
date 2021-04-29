@@ -4,7 +4,7 @@
 <div id="@yield('form_page_id')" class="container-fluid">
     <div class="row">
         <div class="col-md-12 page-title">
-            <h4 class="text-center text-uppercase">{{ empty($entity->id) ? 'ADD' : 'EDIT' }} @yield('form_header')</h4>
+            <h4 class="text-center text-uppercase">{{ empty($entity->id) ? 'СОЗДАТЬ' : 'РЕДАКТИРОВАТЬ' }} @yield('form_header')</h4>
         </div>
     </div>
     <div class="row">
@@ -14,7 +14,7 @@
                     <a href="{{ route('admin.home') }}">PANEL</a>
                 </li>
                 <li class="breadcrumb-item"><a href="{{ $returnToListUrl }}">@yield('form_grid_url_caption')</a></li>
-                <li class="breadcrumb-item active">{{ empty($entity->id) ? 'Add' : 'Edit' }}</li>
+                <li class="breadcrumb-item active">{{ empty($entity->id) ? 'СОЗДАТЬ' : 'РЕДАКТИРОВАТЬ' }}</li>
             </div>
         </div>
     </div>

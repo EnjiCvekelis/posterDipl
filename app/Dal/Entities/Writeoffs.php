@@ -7,21 +7,19 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
-class Goods extends EntityBase
+class Writeoffs extends EntityBase
 {
-    protected $table = 'goods';
+    protected $table = 'writeoffs';
 
     /**
      * @var array
      */
 
-    protected $fillable = ['name'];
+    protected $fillable = ['goods_id', 'amount', 'price', 'total'];
 
-    public function deliveries() {
-        return $this->hasMany(Deliveries::class);
+    public function goods()
+    {
+        return $this->belongsTo(Goods::class);
     }
 
-    public function writeoffs() {
-        return $this->hasMany(Writeoffs::class);
-    }
 }

@@ -54,6 +54,12 @@
                     <span class="nav-link-category">Поставки</span>
                 </a>
             </li>
+            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Списания">
+                <a class="nav-link" href="{{ route('admin.writeoffs') }}">
+                    <i class="fas fa-users"></i>
+                    <span class="nav-link-category">Списания</span>
+                </a>
+            </li>
             <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Остатки">
                 <a class="nav-link" href="{{ route('admin.remains') }}">
                     <i class="fas fa-users"></i>

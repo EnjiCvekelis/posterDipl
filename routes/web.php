@@ -55,6 +55,17 @@ Route::get('/tracks/{id}', 'Admin\JsonController@tracks');
         Route::get('deliveries/{id}/edit', 'Admin\DeliveriesController@edit')->name('admin.deliveries.edit');
         Route::post('deliveries/{id}/edit', 'Admin\DeliveriesController@edit');
         Route::get('deliveries/{id}/delete', 'Admin\DeliveriesController@delete')->name('admin.deliveries.delete');
+
+        Route::get('writeoffs', 'Admin\WriteoffsController@index')->name('admin.writeoffs');
+        Route::get('writeoffs/add', 'Admin\WriteoffsController@add')->name('admin.writeoffs.add');
+        Route::post('writeoffs/add', 'Admin\WriteoffsController@add');
+        Route::get('writeoffs/{id}/edit', 'Admin\WriteoffsController@edit')->name('admin.writeoffs.edit');
+        Route::post('writeoffs/{id}/edit', 'Admin\WriteoffsController@edit');
+        Route::get('writeoffs/{id}/delete', 'Admin\WriteoffsController@delete')->name('admin.writeoffs.delete');
+
+
+        Route::get('excel', 'Admin\RemainsController@excel')->name('admin.excel');
+
     }
 );
 
