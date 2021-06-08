@@ -15,7 +15,18 @@
 
     <div class="tab-content admin-form__tab-content">
         <div class="tab-pane fade show active" id="tbp-edit-general" role="tabpanel" aria-labelledby="btn-edit-general">
-            @include('admin._components.fields.select', ['thCaption' => 'Товар', 'thName' => 'goods_id', 'thList' => $goods, 'thValue' => $selectedGood])
+            <div class="form-group">
+                <label class="control-label col-sm-4">Товар</label>
+                <div class="col-sm-5">
+                    <select id="goods_id" name="goods_id" class="form-control js-example-basic-single">
+                        @foreach($goods as $item)
+                            <option value="{{ $item->id }}" {{ $item->id ==
+                        (isset($thValue) ? $thValue : (isset($entity) ? old('goods_id', $entity->goods_id   ) : ''))
+                            ? 'selected=selected' : '' }}>{{ $item->name }}</option>
+                        @endforeach
+                    </select>
+                </div>
+            </div>
             @include('admin._components.fields.number', ['thCaption' => 'Количество', 'thName' => 'amount'])
             @include('admin._components.fields.text', ['thCaption' => 'Цена за единицу', 'thName' => 'price'])
             @include('admin._components.fields.select', ['thCaption'=>'Склад', 'thName' => 'storage', 'thList' => [
@@ -37,5 +48,9 @@
     </div>
 
     </div>
-
+    <script>
+        $(document).ready(function() {
+            $('.js-example-basic-single').select2();
+        });
+    </script>
 @endsection

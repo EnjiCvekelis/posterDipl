@@ -11,6 +11,7 @@ use App\Dal\Entities\Admin\WriteoffsAdmin;
 use App\Dal\Entities\Deliveries;
 use App\Dal\Entities\Goods;
 use App\Dal\Entities\CategorySubcategory;
+use App\Dal\Entities\Remains;
 use App\Dal\Entities\SubCategoryLocale;
 use App\Dal\Entities\Locale;
 use App\Dal\Entities\Writeoffs;
@@ -47,25 +48,25 @@ class WriteoffsController extends BkControllerBase
         $returnToListUrl = routeWithQuery('admin.writeoffs');
 
         if ($this->isPost()) {
-
-            $this->validateAddForm($request);
-            $entity = new WriteoffsAdmin($request->all());
-            $entity->total = $request->amount * $request->price;
-            $entity->save();
-
             $remains = RemainsAdmin::where('goods_id', '=', $request->goods_id)->firstOrFail();
-            $remains->total = $remains->total - $entity->total;
-            $remains->amount = $remains->amount - $request->amount;
-            $remains->save();
+//            if($remains->amount >= $request->amount) {
+                $this->validateAddForm($request);
+                $entity = new WriteoffsAdmin($request->all());
+                $entity->total = $request->amount * $request->price;
+                $entity->save();
 
 
+                $remains->total = $remains->total - $entity->total;
+                $remains->amount = $remains->amount - $request->amount;
+                $remains->save();
 
-            return redirect(
-                routeWithQuery(
-                    'admin.writeoffs.edit',
-                    ['id' => $entity->id, 'success' => true]
-                )
-            );
+                return redirect(
+                    routeWithQuery(
+                        'admin.writeoffs.edit',
+                        ['id' => $entity->id, 'success' => true]
+                    )
+                );
+
 
         } else {
             $entity = new WriteoffsAdmin();
@@ -153,7 +154,7 @@ class WriteoffsController extends BkControllerBase
             $request,
             [
                 'goods_id' => 'bail|required',
-                'amount' => 'bail|required',
+                'amount' => "bail|required",
                 'price' => 'bail|required',
             ],
             [],

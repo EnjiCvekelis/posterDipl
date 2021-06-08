@@ -15,7 +15,7 @@ class Goods extends EntityBase
      * @var array
      */
 
-    protected $fillable = ['name'];
+    protected $fillable = ['name', 'manufacturer', 'importer'];
 
     public function deliveries() {
         return $this->hasMany(Deliveries::class);

@@ -9,6 +9,8 @@
 @section('form_grid_table_header')
 
     <th class="text-center">Название</th>
+    <th class="text-center">Производитель</th>
+    <th class="text-center">Импортер</th>
     <th class="text-center" colspan="2">Действия</th>
 
 @endsection
@@ -18,6 +20,8 @@
     @foreach($gridItems as $gridItem)
         <tr>
             <td>{{ $gridItem->name }}</td>
+            <td>{{ $gridItem->manufacturer }}</td>
+            <td>{{ $gridItem->importer }}</td>
             @include('admin._components.grid_action_buttons', ['thRouteActionKey' => 'goods'])
         </tr>
     @endforeach

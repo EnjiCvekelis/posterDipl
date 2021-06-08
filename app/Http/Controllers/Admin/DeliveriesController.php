@@ -132,7 +132,7 @@ class DeliveriesController extends BkControllerBase
                 'success' => $request->success,
                 'returnToListUrl' => $returnToListUrl,
                 'goods' => $categoriesArr,
-                'selectedGood' => ''
+                'selectedGood' => 6
             ]
         );
     }

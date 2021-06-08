@@ -12,7 +12,7 @@ Params:
 */
 ?>
 
-<div class="form-group {{ !isset($thRequired) || $thRequired ? 'required' : '' }}">
+<div class="form-group {{ !isset($thRequired) || $thRequired ? 'required' : '' }} {{ isset($select) ? 'js-example-basic-single' : '' }}">
     <label class="control-label col-sm-4">{{ isset($thCaption) ? $thCaption : '' }}</label>
     <div class="col-sm-5">
         <select id="{{ $thName }}" name="{{ $thName }}" class="form-control">

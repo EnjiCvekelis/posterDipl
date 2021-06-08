@@ -16,6 +16,8 @@
     <div class="tab-content admin-form__tab-content">
         <div class="tab-pane fade show active" id="tbp-edit-general" role="tabpanel" aria-labelledby="btn-edit-general">
             @include('admin._components.fields.text', ['thCaption' => 'Название', 'thName' => 'name'])
+            @include('admin._components.fields.text', ['thCaption' => 'Производитель', 'thName' => 'manufacturer'])
+            @include('admin._components.fields.text', ['thCaption' => 'Импортер', 'thName' => 'importer'])
         </div>
     <div class="form-group">
         <div class="btn-actions__wrap">
