@@ -116,10 +116,14 @@ class GoodsController extends BkControllerBase
             $request,
             [
                 'name' => 'bail|required',
+                'manufacturer' => 'bail|required',
+                'importer' => 'bail|required',
             ],
             [],
             [
                 'name' => 'Name',
+                'manufacturer' => 'Manufacturer',
+                'importer' => 'Importer',
             ]
         );
     }
@@ -130,10 +134,14 @@ class GoodsController extends BkControllerBase
             $request,
             [
                 'name' => 'bail|required',
+                'manufacturer' => 'bail|required',
+                'importer' => 'bail|required',
             ],
             [],
             [
                 'name' => 'Name',
+                'manufacturer' => 'Manufacturer',
+                'importer' => 'Importer',
             ]
         );
     }

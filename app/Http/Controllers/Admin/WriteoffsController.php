@@ -49,7 +49,7 @@ class WriteoffsController extends BkControllerBase
 
         if ($this->isPost()) {
             $remains = RemainsAdmin::where('goods_id', '=', $request->goods_id)->firstOrFail();
-//            if($remains->amount >= $request->amount) {
+            if($remains->amount >= $request->amount) {
                 $this->validateAddForm($request);
                 $entity = new WriteoffsAdmin($request->all());
                 $entity->total = $request->amount * $request->price;
@@ -66,7 +66,14 @@ class WriteoffsController extends BkControllerBase
                         ['id' => $entity->id, 'success' => true]
                     )
                 );
-
+            } else {
+                return redirect(
+                    routeWithQuery(
+                        'admin.writeoffs.add',
+                        ['success' => true]
+                    )
+                );
+            }
 
         } else {
             $entity = new WriteoffsAdmin();
