@@ -3,7 +3,7 @@
 namespace App\Exports;
 
 use App\Dal\Entities\Remains;
-use Maatwebsite\Excel\Concerns\FromCollection;
+//use Maatwebsite\Excel\Concerns\FromCollection;
 
 class RemainsExport implements FromCollection
 {
@@ -12,6 +12,6 @@ class RemainsExport implements FromCollection
     */
     public function collection()
     {
-        return Remains::all();
+//        return Remains::all();
     }
 }
