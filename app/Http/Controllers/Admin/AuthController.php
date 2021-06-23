@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Dal\Entities\Admin\UserAdmin;
 use App\Dal\Entities\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
@@ -58,7 +59,13 @@ class AuthController extends Controller
             'password' => 'bail|required'
         ]);
 
+        $entity = new UserAdmin($request->all());
+        $entity->password = \Hash::make($request->password);
+        $entity->name = $request->email;
+        $entity->save();
+
         $credentials = $request->only('email', 'password');
+
 
         if (Auth::attempt($credentials)) {
             return redirect()->intended($this->redirectPath);

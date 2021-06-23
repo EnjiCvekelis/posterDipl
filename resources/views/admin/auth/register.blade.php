@@ -25,7 +25,7 @@
                                 {{ $errors->first() }}
                             </div>
                         @endif
-                        <form method="post" action="" role="login">
+                        <form method="post" action="{{route('register.auth')}}" role="login">
                             {{ csrf_field() }}
                             <input type="text" name="email" class="form-control input-lg" placeholder="Логин"  required />
                             <input type="password" name="password" class="form-control input-lg" placeholder="Пароль" required />

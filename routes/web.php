@@ -36,7 +36,7 @@ Route::get('/tracks/{id}', 'Admin\JsonController@tracks');
 
         Route::get('users', 'Admin\UsersController@index')->name('admin.users');
         Route::get('users/add', 'Admin\UsersController@add')->name('admin.users.add');
-        Route::post('users/add', 'Admin\UsersController@add');
+        Route::post('users/register', 'Admin\UsersController@regiser')->name('admin.users.register');
         Route::get('users/{id}/edit', 'Admin\UsersController@edit')->name('admin.users.edit');
         Route::post('users/{id}/edit', 'Admin\UsersController@edit');
         Route::get('users/{id}/delete', 'Admin\UsersController@delete')->name('admin.users.delete');
@@ -75,6 +75,6 @@ Route::group(
         Route::get('', 'Admin\AuthController@showLoginForm')->name('login');
         Route::post('', 'Admin\AuthController@authenticate')->name('authenticate');
         Route::get('/register', 'Admin\AuthController@showRegisterForm')->name('register');
-        Route::post('', 'Admin\AuthController@register')->name('register.auth');
+        Route::post('/register', 'Admin\AuthController@register')->name('register.auth');
     }
 );
