@@ -5,10 +5,12 @@
     </div>
     <div class="content-panel content-main">
         <div class="search content-panel__top">
+            @if(Route::current()->getName() == 'admin.goods')
             <div class="search-wrap">
                 <input type="text" class="form-control" id="search-single" data-url="@yield('form_grid_search_url')"
                        value="{{ $query }}" placeholder="Search">
             </div>
+            @endif
             <div style="display: flex">
                 <div class="btn-add">
                     <a href="@yield('form_grid_add_url')" class="btn-add__plus">
