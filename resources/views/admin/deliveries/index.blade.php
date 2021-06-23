@@ -22,7 +22,11 @@
 
     @foreach($deliveries as $gridItem)
         <tr>
+            @if($gridItem->goods)
             <td>{{ $gridItem->goods->name }}</td>
+            @else
+                <td></td>
+            @endif
             <td>{{ $gridItem->amount }}</td>
             <td>{{ $gridItem->price }}</td>
             <td>{{ $gridItem->total }}</td>
